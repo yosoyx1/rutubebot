@@ -14,7 +14,7 @@ async def fetch(c, m, fetch, link):
     rupt   = 'https?://rutube\.ru/(?:video|(?:play/)?embed)/(?P<id>[\da-z]{32})'
     search = re.search(rupt, link)
     if not search:
-       await m.reply_text('**Please send valid rutube link!**')
+       await m.reply_text('**Пожалуйста, пришлите действующую ссылку на rutube!**')
        await fetch.delete()
        await m.reply_sticker(stk0)
        return
@@ -62,11 +62,11 @@ async def fetch(c, m, fetch, link):
             break
 
     msgFetch = f"""
-**Title:** {title}
-**Author:** <a href="{channel}"><b>{author}</b></a>
-**Length:** {length}
-**Views:** {views}
-**Date:** {date}"""
+**Название:** {title}
+**Автор:** <a href="{channel}"><b>{author}</b></a>
+**Длительность:** {length}
+**Просмотров:** {views}
+**Дата:** {date}"""
 
     msgFetch += "\n\n"
     await fetch.delete()
@@ -203,13 +203,13 @@ async def tHePrOgReSsHoOk(timedone, times, savetoken):
     fileName = savetoken.title + ".mp4"
     Mediasize = savetoken.size
     tex = f"""
-╭───[**Dᴏᴡɴʟᴏᴀᴅɪɴɢ Yᴏᴜʀ Fɪʟᴇ**]───⍟
+╭───[**Скачивание видео**]───⍟
 │
-├<b>📁 Fɪʟᴇ Nᴀᴍᴇ : {fileName}</b>
+├<b>📁 Название видео : {fileName}</b>
 │
-├<b>🗂 Fɪʟᴇ Sɪᴢᴇ : {Mediasize}</b>
+├<b>🗂 Размер видео : {Mediasize}</b>
 │
-├<b>✅ Dᴏɴᴇ : {downloadprogress}%</b>
+├<b>✅ Скачано : {downloadprogress}%</b>
 │
 ├<b>📥 : [{messa}]</b>
 ╰─────────────────⍟"""
@@ -260,17 +260,17 @@ async def progresss(current, total, message, start, name, info):
         speed = current / diff
 
         progress = """\n
-╭───[**Uᴘʟᴏᴀᴅɪɴɢ Yᴏᴜʀ Fɪʟᴇ**]───⍟
+╭───[**Загрузка видео**]───⍟
 │
-├<b>📁 Fɪʟᴇ Nᴀᴍᴇ : {6}</b>
+├<b>📁 Название видео : {6}</b>
 │
-├<b>✅ Dᴏɴᴇ : {3} / {4}</b>
+├<b>✅ Выполнено : {3} / {4}</b>
 │
-├<b>🚀 Pʀᴏɢʀᴇss : {2}%</b>
+├<b>🚀 Прогресс : {2}%</b>
 │
 ├<b>📥 : [{0}{1}]</b>
 │
-├<b>⚡ Sᴘᴇᴇᴅ : {5}/s</b>
+├<b>⚡ Скорость : {5}/s</b>
 ╰─────────────────⍟""".format(
             ''.join(["●" for i in range(math.floor(percentage / 5))]),
             ''.join(["○" for i in range(20 - math.floor(percentage / 5))]),
